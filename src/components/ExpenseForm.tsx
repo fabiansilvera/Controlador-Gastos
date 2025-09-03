@@ -20,7 +20,7 @@ export default function ExpenseForm() {
 
       setExpense({
         ...expense,
-        [name] : isAmountField ? Number(value) : value
+        [name] : isAmountField ? Number(value)   : value
       })
   }
 
