@@ -48,6 +48,14 @@ export default function ExpenseForm() {
 
     // Agregar gasto
     dispatch({type: 'add-expense', payload: {expense} })
+
+    // Reiniciar el modal
+    setExpense({
+      amount: 0,
+      expenseName: '',
+      category: '',
+      date: new Date()
+    })
   }
 
   return (
@@ -58,12 +66,12 @@ export default function ExpenseForm() {
 
         <div className="flex flex-col gap-2">
           <label htmlFor="expenseName" className="text-xl">Nombre Gasto: </label>
-          <input type="text" id="expenseName" placeholder="Añade el Nombre del gasto" className="bg-slate-100 p-2" name="expenseName" onChange={handleChange}/>
+          <input type="text" id="expenseName" value={expense.expenseName} placeholder="Añade el Nombre del gasto" className="bg-slate-100 p-2" name="expenseName" onChange={handleChange}/>
         </div>
 
         <div className="flex flex-col gap-2">
           <label htmlFor="amount" className="text-xl">Cantidad: </label>
-          <input type="number" id="amount" placeholder="Añade la cantidad del gasto ej. 300" className="bg-slate-100 p-2" name="amount" onChange={handleChange}/>
+          <input type="number" id="amount" value={expense.amount} placeholder="Añade la cantidad del gasto ej. 300" className="bg-slate-100 p-2" name="amount" onChange={handleChange}/>
         </div>
 
         <div className="flex flex-col gap-2">
